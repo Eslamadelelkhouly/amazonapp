@@ -1,3 +1,4 @@
+import 'package:amazonapp/constants/common_function.dart';
 import 'package:amazonapp/utils/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -32,11 +33,15 @@ class _AuthScreenState extends State<AuthScreen> {
             vertical: height * 0.02,
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'Welcome',
-                style: textTheme.displaySmall,
+                style: textTheme.displaySmall!.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
               ),
+              CommonFunction.blankSpace(height * 0.02, 0),
             ],
           ),
         ),
