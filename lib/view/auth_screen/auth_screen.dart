@@ -42,6 +42,35 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
               ),
               CommonFunction.blankSpace(height * 0.02, 0),
+              Container(
+                width: width,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: greyShade3,
+                  ),
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      height: height * 0.06,
+                      width: width,
+                      child: Row(
+                        children: [
+                          Container(
+                            height: height * 0.03,
+                            width: height * 0.03,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(color: grey),
+                              color: white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
