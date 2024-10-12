@@ -17,6 +17,7 @@ class _AuthScreenState extends State<AuthScreen> {
     final width = MediaQuery.of(context).size.width;
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
+      backgroundColor: white,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: white,
@@ -53,6 +54,14 @@ class _AuthScreenState extends State<AuthScreen> {
                 child: Column(
                   children: [
                     Container(
+                      decoration: BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(
+                            color: greyShade3,
+                          ),
+                        ),
+                        color: greyShade1,
+                      ),
                       height: height * 0.06,
                       width: width,
                       padding: EdgeInsets.symmetric(horizontal: width * 0.03),
