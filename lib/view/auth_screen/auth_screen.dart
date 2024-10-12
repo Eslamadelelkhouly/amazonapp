@@ -10,6 +10,7 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
+  bool inLogin = true;
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -54,6 +55,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     Container(
                       height: height * 0.06,
                       width: width,
+                      padding: EdgeInsets.symmetric(horizontal: width * 0.03),
                       child: Row(
                         children: [
                           Container(
@@ -63,6 +65,29 @@ class _AuthScreenState extends State<AuthScreen> {
                               shape: BoxShape.circle,
                               border: Border.all(color: grey),
                               color: white,
+                            ),
+                            alignment: Alignment.center,
+                            child: Icon(
+                              Icons.circle,
+                              size: height * 0.015,
+                              color: !inLogin ? transparent : secondaryColor,
+                            ),
+                          ),
+                          CommonFunction.blankSpace(0, width * 0.02),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Create Account',
+                                  style: textTheme.bodyMedium!.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: ' New to Amazon? ',
+                                  style: textTheme.bodyMedium,
+                                ),
+                              ],
                             ),
                           ),
                         ],
