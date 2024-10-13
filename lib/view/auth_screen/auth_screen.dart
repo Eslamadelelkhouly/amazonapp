@@ -234,6 +234,21 @@ class _AuthScreenState extends State<AuthScreen> {
                               ),
                             ],
                           ),
+                          CommonFunction.blankSpace(height * 0.02, 0),
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              minimumSize: Size(width * 0.88, height * 0.06),
+                              backgroundColor: amber,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                            ),
+                            child: Text(
+                              'Continue',
+                              style: textTheme.displaySmall,
+                            ),
+                          ),
                         ],
                       ),
                     ),
