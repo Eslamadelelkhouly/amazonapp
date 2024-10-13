@@ -13,6 +13,7 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   bool inLogin = true;
   String currentCountryCode = '+20';
+  TextEditingController mobileController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class _AuthScreenState extends State<AuthScreen> {
         centerTitle: true,
         backgroundColor: white,
         title: Image(
-          image: AssetImage('assets/images/amazon_logo.png'),
+          image: const AssetImage('assets/images/amazon_logo.png'),
           height: height * 0.04,
         ),
       ),
@@ -166,6 +167,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           ),
                           CommonFunction.blankSpace(height * 0.01, 0),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               InkWell(
                                 onTap: () {
@@ -194,6 +196,38 @@ class _AuthScreenState extends State<AuthScreen> {
                                     currentCountryCode,
                                     style: textTheme.displaySmall!.copyWith(
                                       fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: height * 0.06,
+                                width: width * 0.64,
+                                child: TextField(
+                                  controller: mobileController,
+                                  style: textTheme.displaySmall,
+                                  keyboardType: TextInputType.number,
+                                  cursorColor: black,
+                                  decoration: InputDecoration(
+                                    hintText: 'Mobile number',
+                                    hintStyle: textTheme.bodySmall,
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide: BorderSide(color: grey),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide: const BorderSide(
+                                        color: secondaryColor,
+                                      ),
+                                    ),
+                                    disabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide: BorderSide(color: grey),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                      borderSide: BorderSide(color: grey),
                                     ),
                                   ),
                                 ),

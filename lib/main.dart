@@ -12,9 +12,9 @@ class Amazon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: theme ,
+      theme: theme,
       debugShowCheckedModeBanner: false,
-      home: AuthScreen(),
+      home: const AuthScreen(),
     );
   }
 }
