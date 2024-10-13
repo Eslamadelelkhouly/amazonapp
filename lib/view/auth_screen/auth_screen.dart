@@ -1,5 +1,6 @@
 import 'package:amazonapp/constants/common_function.dart';
 import 'package:amazonapp/utils/colors.dart';
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -11,6 +12,8 @@ class AuthScreen extends StatefulWidget {
 
 class _AuthScreenState extends State<AuthScreen> {
   bool inLogin = true;
+  String currentCountryCode = '+20';
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -157,6 +160,42 @@ class _AuthScreenState extends State<AuthScreen> {
                                       style: textTheme.bodyMedium,
                                     ),
                                   ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          CommonFunction.blankSpace(height * 0.01, 0),
+                          Row(
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  showCountryPicker(
+                                    context: context,
+                                    onSelect: (value) {
+                                      setState(() {
+                                        currentCountryCode =
+                                            '+${value.phoneCode}';
+                                      });
+                                    },
+                                  );
+                                },
+                                child: Container(
+                                  height: height * 0.06,
+                                  width: width * 0.2,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: grey,
+                                    ),
+                                    color: greyShade2,
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    currentCountryCode,
+                                    style: textTheme.displaySmall!.copyWith(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ],
