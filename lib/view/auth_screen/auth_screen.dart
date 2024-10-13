@@ -282,7 +282,56 @@ class _AuthScreenState extends State<AuthScreen> {
                     ),
                   ],
                 ),
-              )
+              ),
+              CommonFunction.blankSpace(height * 0.05, 0),
+              Column(
+                children: [
+                  Container(
+                    height: 2,
+                    width: width,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          white,
+                          greyShade3,
+                          white,
+                        ],
+                      ),
+                    ),
+                  ),
+                  CommonFunction.blankSpace(height * 0.02, 0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        'Condition of Use',
+                        style: textTheme.bodyMedium!.copyWith(
+                          color: blue,
+                        ),
+                      ),
+                      Text(
+                        'Privacy Notice',
+                        style: textTheme.bodyMedium!.copyWith(
+                          color: blue,
+                        ),
+                      ),
+                      Text(
+                        'Help',
+                        style: textTheme.bodyMedium!.copyWith(
+                          color: blue,
+                        ),
+                      ),
+                    ],
+                  ),
+                  CommonFunction.blankSpace(height * 0.01, 0),
+                  Text(
+                    '© 1996-2023, Amazon.com, Inc, or its affiliates',
+                    style: textTheme.labelMedium!.copyWith(
+                      color: grey,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
