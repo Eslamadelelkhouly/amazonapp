@@ -249,6 +249,34 @@ class _AuthScreenState extends State<AuthScreen> {
                               style: textTheme.displaySmall,
                             ),
                           ),
+                          CommonFunction.blankSpace(height * 0.02, 0),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text:
+                                      'By Continuing you you agree to Amazons\'s ',
+                                  style: textTheme.labelMedium,
+                                ),
+                                TextSpan(
+                                  text: 'Conditions of use ',
+                                  style: textTheme.labelMedium!.copyWith(
+                                    color: blue,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: 'and ',
+                                  style: textTheme.labelMedium,
+                                ),
+                                TextSpan(
+                                  text: 'Privacy Notice.',
+                                  style: textTheme.labelMedium!.copyWith(
+                                    color: blue,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
                         ],
                       ),
                     ),
