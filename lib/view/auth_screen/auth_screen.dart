@@ -257,19 +257,9 @@ class _AuthScreenState extends State<AuthScreen> {
                   ],
                 ),
                 CommonFunction.blankSpace(height * 0.02, 0),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: Size(width * 0.88, height * 0.06),
-                    backgroundColor: amber,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  ),
-                  child: Text(
-                    'Continue',
-                    style: textTheme.displaySmall,
-                  ),
+                CommonAuthButton(
+                  title: 'Continue',
+                  onPressed: (){},
                 ),
                 CommonFunction.blankSpace(height * 0.02, 0),
                 RichText(
@@ -572,6 +562,37 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class CommonAuthButton extends StatelessWidget {
+  const CommonAuthButton({
+    super.key,
+    required this.title,
+    required this.onPressed,
+  });
+  final String title;
+  final VoidCallback onPressed;
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    return ElevatedButton(
+      onPressed: () {},
+      style: ElevatedButton.styleFrom(
+        minimumSize: Size(width * 0.88, height * 0.06),
+        backgroundColor: amber,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5),
+        ),
+      ),
+      child: Text(
+        'Continue',
+        style: textTheme.displaySmall,
       ),
     );
   }
