@@ -60,8 +60,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   },
                 ),
                 CommonFunction.blankSpace(height * 0.05, 0),
-                ButtomAuthScreenWidget(
-                    width: width, height: height, textTheme: textTheme),
+                const ButtomAuthScreenWidget(),
               ],
             ),
           ),
@@ -258,8 +257,9 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
                 CommonFunction.blankSpace(height * 0.02, 0),
                 CommonAuthButton(
+                  width: 0.88,
                   title: 'Continue',
-                  onPressed: (){},
+                  onPressed: () {},
                 ),
                 CommonFunction.blankSpace(height * 0.02, 0),
                 RichText(
@@ -572,9 +572,11 @@ class CommonAuthButton extends StatelessWidget {
     super.key,
     required this.title,
     required this.onPressed,
+    required this.width,
   });
   final String title;
   final VoidCallback onPressed;
+  final double width;
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -584,7 +586,7 @@ class CommonAuthButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () {},
       style: ElevatedButton.styleFrom(
-        minimumSize: Size(width * 0.88, height * 0.06),
+        minimumSize: Size(width * width, height * 0.06),
         backgroundColor: amber,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),
@@ -601,17 +603,13 @@ class CommonAuthButton extends StatelessWidget {
 class ButtomAuthScreenWidget extends StatelessWidget {
   const ButtomAuthScreenWidget({
     super.key,
-    required this.width,
-    required this.height,
-    required this.textTheme,
   });
-
-  final double width;
-  final double height;
-  final TextTheme textTheme;
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    final textTheme = Theme.of(context).textTheme;
     return Column(
       children: [
         Container(

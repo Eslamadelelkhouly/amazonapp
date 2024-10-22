@@ -1,5 +1,6 @@
 import 'package:amazonapp/constants/common_function.dart';
 import 'package:amazonapp/utils/colors.dart';
+import 'package:amazonapp/view/auth_screen/auth_screen.dart';
 import 'package:flutter/material.dart';
 
 class OtpScreen extends StatefulWidget {
@@ -11,6 +12,7 @@ class OtpScreen extends StatefulWidget {
 }
 
 class _OtpScreenState extends State<OtpScreen> {
+  TextEditingController otpController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -64,6 +66,55 @@ class _OtpScreenState extends State<OtpScreen> {
                 'we have send a One Time Password (OTP) to the mobile number above. please enter it to complete verification',
                 style: textTheme.bodyMedium,
               ),
+              CommonFunction.blankSpace(height * 0.02, 0),
+              TextField(
+                controller: otpController,
+                decoration: InputDecoration(
+                  hintText: 'Enter OTP',
+                  hintStyle: textTheme.bodySmall,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide: BorderSide(color: grey),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide: const BorderSide(
+                      color: secondaryColor,
+                    ),
+                  ),
+                  disabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide: BorderSide(color: grey),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide: BorderSide(color: grey),
+                  ),
+                ),
+              ),
+              CommonFunction.blankSpace(height * 0.01, 0),
+              CommonAuthButton(
+                width: 0.94,
+                title: 'Continue',
+                onPressed: () {},
+              ),
+              CommonFunction.blankSpace(height * 0.02, 0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Resend OTP',
+                      style: textTheme.bodyMedium!.copyWith(
+                        color: blue,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              CommonFunction.blankSpace(height * 0.02, 0),
+              const ButtomAuthScreenWidget(),
             ],
           ),
         ),

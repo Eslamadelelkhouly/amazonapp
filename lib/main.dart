@@ -1,7 +1,7 @@
 import 'package:amazonapp/utils/theme.dart';
-import 'package:amazonapp/view/auth_screen/auth_screen.dart';
 import 'package:amazonapp/view/auth_screen/otp_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const Amazon());
@@ -12,13 +12,18 @@ class Amazon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: theme,
-      debugShowCheckedModeBanner: false,
-      // home: OtpScreen(
-      //   mobilenumber: '+91101101010',
-      // ),
-      home: AuthScreen(),
+    return MultiProvider(
+      providers: [
+        
+      ],
+      child: MaterialApp(
+        theme: theme,
+        debugShowCheckedModeBanner: false,
+        home: OtpScreen(
+          mobilenumber: '+91101101010',
+        ),
+        // home: AuthScreen(),
+      ),
     );
   }
 }
