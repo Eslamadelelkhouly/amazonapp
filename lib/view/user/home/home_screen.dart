@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:amazonapp/utils/colors.dart';
 import 'package:amazonapp/view/user/cart/cart_screen.dart';
 import 'package:amazonapp/view/user/menu/menu_screen.dart';
@@ -71,12 +73,73 @@ class _HomeWidgetState extends State<HomeWidget> {
         appBar: PreferredSize(
           preferredSize: Size(width * 1, height * 0.08),
           child: Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: width * 0.03,
+              vertical: height * 0.012,
+            ),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: appBarGradientColor,
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
               ),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox(
+                  width: width * 0.81,
+                  child: TextField(
+                    onTap: () {
+                      log('Redirecting you to search product screen');
+                    },
+                    cursorColor: black,
+                    decoration: InputDecoration(
+                      fillColor: white,
+                      filled: true,
+                      hintText: 'Search Amazom.in',
+                      prefixIcon: IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.search, color: black),
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.camera_alt_sharp, color: grey),
+                      ),
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: width * 0.03,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(color: grey),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(color: grey),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(color: grey),
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(color: grey),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide(color: grey),
+                      ),
+                    ),
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.mic,
+                    color: black,
+                  ),
+                ),
+              ],
             ),
           ),
         ),
