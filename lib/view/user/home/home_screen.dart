@@ -1,10 +1,12 @@
 import 'dart:developer';
 
+import 'package:amazonapp/constants/constants.dart';
 import 'package:amazonapp/utils/colors.dart';
 import 'package:amazonapp/view/user/cart/cart_screen.dart';
 import 'package:amazonapp/view/user/menu/menu_screen.dart';
 import 'package:amazonapp/view/user/profile/profile_screen.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -155,6 +157,20 @@ class _HomeWidgetState extends State<HomeWidget> {
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
                   ),
+                ),
+              ),
+              Divider(
+                thickness: 2,
+                color: greyShade3,
+                height: 0,
+              ),
+              SizedBox(
+                height: height * 0.1,
+                width: width,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: categories.length,
+                  itemBuilder: (context, index) {},
                 ),
               ),
             ],
