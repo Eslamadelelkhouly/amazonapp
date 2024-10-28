@@ -1,12 +1,13 @@
 import 'dart:developer';
 
+import 'package:amazonapp/constants/common_function.dart';
 import 'package:amazonapp/constants/constants.dart';
 import 'package:amazonapp/utils/colors.dart';
 import 'package:amazonapp/view/user/cart/cart_screen.dart';
 import 'package:amazonapp/view/user/menu/menu_screen.dart';
 import 'package:amazonapp/view/user/profile/profile_screen.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -170,8 +171,57 @@ class _HomeWidgetState extends State<HomeWidget> {
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: categories.length,
-                  itemBuilder: (context, index) {},
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: EdgeInsets.symmetric(horizontal: width * 0.01),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Image(
+                            image: AssetImage(
+                              'assets/images/categories/${categories[index]}.png',
+                            ),
+                            height: height * 0.07,
+                          ),
+                          Text(
+                            categories[index],
+                            style: Theme.of(context).textTheme.labelMedium,
+                          ),
+                        ],
+                      ),
+                    );
+                  },
                 ),
+              ),
+              CommonFunction.blankSpace(height * 0.01, 0),
+              Divider(
+                thickness: 2,
+                color: greyShade3,
+                height: 0,
+              ),
+              CarouselSlider(
+                options: CarouselOptions(
+                  height: height * 0.23,
+                  autoPlay: true,
+                ),
+                items: [1, 2, 3, 4, 5].map((i) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                        width: width,
+                        decoration: BoxDecoration(
+                          color: Colors.amber,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(
+                              'assets/images/carousel_slideshow/${i}.png',
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                }).toList(),
               ),
             ],
           ),
